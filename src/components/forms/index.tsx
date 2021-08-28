@@ -1,11 +1,12 @@
 import { Field } from 'formik'
 
 type FormProps = {
-  name: string
+  name?: string
   required?: boolean
   inputProps?: any
   type?: string
   placeholder?: string
+  value?: string
 }
 
 const CustomForm: React.FC<FormProps> = ({
@@ -13,6 +14,7 @@ const CustomForm: React.FC<FormProps> = ({
   required = false,
   type = 'text',
   placeholder,
+  value
 }) => {
   return (
     <Field
@@ -20,6 +22,7 @@ const CustomForm: React.FC<FormProps> = ({
       required = { required }
       type = { type }
       placeholder = { placeholder }
+      value = { value }
       style = {{
         fontSize: 16,
         fontFamily: "POPPINS",

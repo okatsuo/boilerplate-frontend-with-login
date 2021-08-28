@@ -1,5 +1,7 @@
-import { Formik, Form, Field } from 'formik'
+import { Formik, Form } from 'formik'
+import * as Yup from 'yup'
 import { Container } from '../container'
+import CustomForm from '../forms'
 import * as Styles from './styles'
 
 const initialValues = {
@@ -12,6 +14,11 @@ interface ILogin {
   password: string,
   rememberMe: boolean
 }
+
+const schema = Yup.object().shape({
+  email: Yup.string().required(),
+  password: Yup.string().min(3).required(),
+})
 
 const Login = () => {
   const handleSubmit = (values: ILogin) => {
@@ -35,14 +42,20 @@ const Login = () => {
                 onSubmit={(values) => {
                   handleSubmit(values) 
                 }}
+                validationSchema={schema}
               >
-                {() => (
+                {({errors, touched}) => (
                   <Form>
                     <Styles.Items>
-                      <Field id= "email" name ="email" type="text" placeholder="email"/>
-                      <Field id= "password" name ="password" type="password" placeholder="senha"/>
-                      <Field id= "rememberMe" name ="rememberMe" type="checkbox" placeholder="teste"/> lembrar-me
-                      <Field type="submit" value="ENTRAR"/>
+                      <CustomForm name="email" type="text" placeholder="email"/>
+                      {errors.email && touched.email && errors.email}
+
+                      <CustomForm name="password" type="password" placeholder="senha"/>
+                      {errors.password && touched.password && errors.password}
+
+                      <CustomForm name ="rememberMe" type="checkbox" placeholder="teste"/> lembrar-me
+
+                      <CustomForm type="submit" value="ENTRAR"/>
                     </Styles.Items>   
                   </Form>
                 )}

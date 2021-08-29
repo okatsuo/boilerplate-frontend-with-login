@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from 'styled-components'
 
 export const Wrapper = styled.div`
 `
@@ -11,10 +11,10 @@ export const Content = styled.div`
 `
 
 export const Square = styled.div`
-  ${({theme})=> css`
+  ${({ theme }) => css`
     background: ${theme.colors.secondaryBackground};
-    width: 400px;
-    height: 430px;
+    width: 350px;
+    height: 300px;
     border-radius: 20px;
     display: flex;
     align-items: center;

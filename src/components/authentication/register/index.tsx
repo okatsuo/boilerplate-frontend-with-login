@@ -1,6 +1,13 @@
+import * as Styles from '../background/styles'
 const Register = () => {
   return (
-  <p>oh shit, here we go again!</p>
+    <Styles.Wrapper>
+      <Styles.Content>
+        <Styles.Square>
+          <div>oh shit, here we go again</div>
+        </Styles.Square>
+      </Styles.Content>
+    </Styles.Wrapper>
   )
 }
 

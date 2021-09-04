@@ -6,6 +6,7 @@ import Button from '../../forms/button'
 import InputForm from '../../forms/inputs'
 import sweetAlert from '../../../utils/window-alert'
 import * as Styles from '../styles'
+import { Container } from '../../container'
 
 const initialValues = {
   email: '',
@@ -66,36 +67,38 @@ const Register = () => {
 
   return (
     <Styles.Wrapper>
-      <Styles.Content>
-        <Styles.Square>
-          <Formik initialValues={initialValues}
-            onSubmit={async (values) => {
-              await handleSubmit(values)
-            }}
-            validationSchema={schema}
-          >
-            {({ errors, touched }) => (
-              <Form>
-                <Styles.Items>
-                  <InputForm name='name' type='text' placeholder='name' />
-                  {errors.name && touched.name && errors.name}
+      <Container>
+        <Styles.Content>
+          <Styles.Square>
+            <Formik initialValues={initialValues}
+              onSubmit={async (values) => {
+                await handleSubmit(values)
+              }}
+              validationSchema={schema}
+            >
+              {({ errors, touched }) => (
+                <Form>
+                  <Styles.Items>
+                    <InputForm name='name' type='text' placeholder='name' />
+                    {errors.name && touched.name && errors.name}
 
-                  <InputForm name='email' type='text' placeholder='email' />
-                  {errors.email && touched.email && errors.email}
+                    <InputForm name='email' type='text' placeholder='email' />
+                    {errors.email && touched.email && errors.email}
 
-                  <InputForm name='password' type='password' placeholder='password' />
-                  {errors.password && touched.password && errors.password}
+                    <InputForm name='password' type='password' placeholder='password' />
+                    {errors.password && touched.password && errors.password}
 
-                  <InputForm name='passwordConfirmation' type='password' placeholder='confirmação da senha' />
-                  {errors.passwordConfirmation && touched.passwordConfirmation && errors.passwordConfirmation}
+                    <InputForm name='passwordConfirmation' type='password' placeholder='confirmação da senha' />
+                    {errors.passwordConfirmation && touched.passwordConfirmation && errors.passwordConfirmation}
 
-                  <Button name='submit' type='submit' value='CADASTRAR' />
-                </Styles.Items>
-              </Form>
-            )}
-          </Formik>
-        </Styles.Square>
-      </Styles.Content>
+                    <Button name='submit' type='submit' value='CADASTRAR' />
+                  </Styles.Items>
+                </Form>
+              )}
+            </Formik>
+          </Styles.Square>
+        </Styles.Content>
+      </Container>
     </Styles.Wrapper>
   )
 }

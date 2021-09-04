@@ -24,7 +24,7 @@ const Button: React.FC<ButtonProps> = ({
           textAlign: 'center',
           borderRadius: '20px',
           border: 'none',
-          width: '100px',
+          width: 'auto',
           height: '30px'
         }}
       />

@@ -5,6 +5,8 @@ import InputForm from '../forms/inputs'
 import Button from '../forms/button'
 import * as Styles from './styles'
 import CheckboxForm from '../forms/checkbox'
+import { USER_LOGIN } from '../../graphql/queries/login'
+import { initializeApollo } from '../../graphql/client'
 interface ILogin {
   email: string
   password: string
@@ -17,14 +19,21 @@ const schema = Yup.object().shape({
 })
 
 const Login = () => {
-  const handleSubmit = (values: ILogin): void => {
+  const handleSubmit = async (values: ILogin) => {
+    const apolloClient = initializeApollo()
     const user = {
       email: values.email,
-      password: values.password,
-      rememberMe: values.rememberMe
+      password: values.password
     }
-
-    console.log('user trying to login: ', user)
+    try {
+      const { data } = await apolloClient.query({
+        query: USER_LOGIN,
+        variables: user
+      })
+      console.table('returned data: ', data)
+    } catch (error) {
+      console.error(error)
+    }
   }
 
   return (
@@ -38,8 +47,8 @@ const Login = () => {
                 password: '',
                 rememberMe: false
               }}
-              onSubmit={(values) => {
-                handleSubmit(values)
+              onSubmit={async (values) => {
+                await handleSubmit(values)
               }}
               validationSchema={schema}
             >

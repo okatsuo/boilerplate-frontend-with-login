@@ -4,6 +4,7 @@ import { Container } from '../container'
 import InputForm from '../forms/inputs'
 import Button from '../forms/button'
 import * as Styles from './styles'
+import CheckboxForm from '../forms/checkbox'
 interface ILogin {
   email: string
   password: string
@@ -11,13 +12,12 @@ interface ILogin {
 }
 
 const schema = Yup.object().shape({
-  email: Yup.string().required(),
+  email: Yup.string().required().email(),
   password: Yup.string().min(3).required()
 })
 
 const Login = () => {
   const handleSubmit = (values: ILogin): void => {
-    console.log('valores:', values)
     const user = {
       email: values.email,
       password: values.password,
@@ -52,11 +52,9 @@ const Login = () => {
                     <InputForm name="password" type="password" placeholder="senha" />
                     {errors.password && touched.password && errors.password}
 
-                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                      <InputForm name="rememberMe" type="checkbox" placeholder="teste" /> lembrar-me
-                    </div>
+                    <CheckboxForm name='rememberMe' message='lembrar-me' />
 
-                    <Button type="submit" value="ENTRAR" />
+                    <Button name='submit' type="submit" value="ENTRAR" />
                   </Styles.Items>
                 </Form>
               )}

@@ -3,15 +3,18 @@ import { Field } from 'formik'
 interface ButtonProps {
   type?: string
   value?: string
+  name?: string
 }
 
 const Button: React.FC<ButtonProps> = ({
   type = 'text',
+  name = 'submit',
   value
 }) => {
   return (
     <>
       <Field
+        name={name}
         type={type}
         value={value}
         style={{

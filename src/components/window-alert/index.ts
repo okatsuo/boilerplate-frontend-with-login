@@ -6,6 +6,7 @@ const sweetAlert = async (
   return (
     await Swal.fire({
       width: 'auto',
+      heightAuto: true,
       ...props
     })
   )

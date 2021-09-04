@@ -35,7 +35,6 @@ const Login = () => {
       await sweetAlert({
         title: `Bem vindo ${account.name}`,
         icon: 'success',
-        heightAuto: true,
         text: 'Seja bem vindo!'
       })
       console.table('returned data: ', data)
@@ -44,7 +43,6 @@ const Login = () => {
       await sweetAlert({
         title: 'Opa...',
         icon: 'error',
-        heightAuto: true,
         text: `${error}`
       })
     }

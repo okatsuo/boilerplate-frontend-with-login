@@ -7,6 +7,7 @@ import * as Styles from './styles'
 import CheckboxForm from '../forms/checkbox'
 import { USER_LOGIN } from '../../graphql/queries/login'
 import { initializeApollo } from '../../graphql/client'
+import sweetAlert from '../window-alert'
 interface ILogin {
   email: string
   password: string
@@ -30,9 +31,22 @@ const Login = () => {
         query: USER_LOGIN,
         variables: user
       })
+      const { account, token } = data.accountLogin
+      await sweetAlert({
+        title: `Bem vindo ${account.name}`,
+        icon: 'success',
+        heightAuto: true,
+        text: 'Seja bem vindo!'
+      })
       console.table('returned data: ', data)
+      console.table('token: ', token)
     } catch (error) {
-      console.error(error)
+      await sweetAlert({
+        title: 'Opa...',
+        icon: 'error',
+        heightAuto: true,
+        text: `${error}`
+      })
     }
   }
 

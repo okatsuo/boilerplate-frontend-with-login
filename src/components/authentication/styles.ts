@@ -21,3 +21,9 @@ export const Square = styled.div`
     justify-content: center;
   `}
 `
+
+export const Items = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`

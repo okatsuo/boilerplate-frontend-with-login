@@ -9,7 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@apollo/client": "^3.4.10",
     "formik": "^2.2.9",
+    "graphql": "^15.5.2",
     "next": "11.1.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
@@ -18,14 +20,14 @@
   },
   "devDependencies": {
     "@types/react": "17.0.19",
-    "eslint-config-standard-with-typescript": "^20.0.0",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^5.0.0",
     "@types/styled-components": "^5.1.12",
     "@typescript-eslint/eslint-plugin": "^4.0.1",
     "eslint": "^7.12.1",
     "eslint-config-next": "11.1.0",
+    "eslint-config-standard-with-typescript": "^20.0.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.0.0",
     "typescript": "^4"
   }
 }

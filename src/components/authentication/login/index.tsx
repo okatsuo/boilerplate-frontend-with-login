@@ -7,7 +7,7 @@ import * as Styles from '../styles'
 import CheckboxForm from '../../forms/checkbox'
 import { USER_LOGIN } from '../../../graphql/queries/login'
 import { initializeApollo } from '../../../graphql/client'
-import sweetAlert from '../../window-alert'
+import sweetAlert from '../../../utils/window-alert'
 interface ILogin {
   email: string
   password: string

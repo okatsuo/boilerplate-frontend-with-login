@@ -4,7 +4,7 @@ import { useApollo } from '../../../graphql/client'
 import { USER_CREATE } from '../../../graphql/mutations/createUser'
 import Button from '../../forms/button'
 import InputForm from '../../forms/inputs'
-import sweetAlert from '../../window-alert'
+import sweetAlert from '../../../utils/window-alert'
 import * as Styles from '../styles'
 
 const initialValues = {

@@ -87,11 +87,15 @@ const Register = () => {
                     <InputForm name='passwordConfirmation' type='password' placeholder='confirmação da senha' />
                     {errors.passwordConfirmation && touched.passwordConfirmation && errors.passwordConfirmation}
 
-                    <Button name='submit' type='submit' value='CADASTRAR' />
+                    <Button name='submit' type='submit' value='CADASTRAR' width='150px' />
                   </Styles.Items>
                 </Form>
               )}
             </Formik>
+            <Styles.ToRegister position={{ bottom: '-25px' }}>
+              Já tem uma conta ?
+              <Styles.Register onClick={async () => await Router.push('/login')}>entrar</Styles.Register>
+            </Styles.ToRegister>
           </Styles.Square>
         </Styles.Content>
       </Container>

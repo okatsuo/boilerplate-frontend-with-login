@@ -29,9 +29,16 @@ export const Items = styled.div`
   flex-direction: column;
   align-items: center;
 `
-export const ToRegister = styled.div`
+
+interface ToRegisterProps {
+  position?: {
+    bottom?: string
+  }
+}
+
+export const ToRegister = styled.div<ToRegisterProps>`
   position: relative;
-  bottom: -45px;
+  bottom: ${props => props?.position?.bottom ?? '-45px'};
 `
 
 export const Register = styled.span`

@@ -2,13 +2,15 @@ import { Field } from 'formik'
 
 interface ButtonProps {
   type?: string
-  value?: string
+  value: string
   name?: string
+  width?: string
 }
 
 const Button: React.FC<ButtonProps> = ({
   type = 'text',
   name = 'submit',
+  width = '100px',
   value
 }) => {
   return (
@@ -24,7 +26,7 @@ const Button: React.FC<ButtonProps> = ({
           textAlign: 'center',
           borderRadius: '20px',
           border: 'none',
-          width: 'auto',
+          width,
           height: '30px',
           cursor: 'pointer'
         }}

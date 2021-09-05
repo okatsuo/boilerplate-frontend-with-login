@@ -15,9 +15,7 @@ export const getServerSideProps = async (context: any) => {
     }
   }
   return {
-    props: {
-      msg: 'tomanocu'
-    }
+    props: {}
   }
 }
 

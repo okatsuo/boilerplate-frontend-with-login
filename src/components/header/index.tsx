@@ -1,22 +1,29 @@
-import { parseCookies } from 'nookies'
+import Router from 'next/router'
+import { parseCookies, destroyCookie } from 'nookies'
 import { jwtDecode } from '../../utils/JWT'
 import { Container } from '../container'
 import * as Styles from './styles'
 
 const Header = () => {
   const cookies = (parseCookies()).t_user
-  const user = jwtDecode(cookies) // TODO remember to change the backend to return JWT with email as well
+  const user = jwtDecode(cookies)
+
+  const logout = async () => {
+    destroyCookie(null, 't_user')
+    await Router.push('/login')
+  }
+
   return (
     <Styles.Wrapper>
       <Container>
         <Styles.Container>
           <Styles.UserInfo>
             <div>
-              email@example.com
+              {user?.email}
             </div>
-            <div>
+            <Styles.Logout onClick={async () => await logout()}>
               sair
-            </div>
+            </Styles.Logout>
           </Styles.UserInfo>
         </Styles.Container>
       </Container>

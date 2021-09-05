@@ -15,3 +15,7 @@ export const UserInfo = styled.div`
   align-items: flex-end;
   flex-direction: column;
 `
+
+export const Logout = styled.div`
+ cursor: pointer;
+`

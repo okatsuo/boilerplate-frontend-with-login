@@ -22,7 +22,7 @@ const schema = Yup.object().shape({
 })
 
 const Login = () => {
-  const { userData, setUserData, userToken, setUserToken } = useContext(UserContext) as any
+  const { setUserData, setUserToken } = useContext(UserContext) as any
 
   const handleSubmit = async (values: ILogin) => {
     const apolloClient = initializeApollo()
@@ -38,16 +38,11 @@ const Login = () => {
       const { account, token } = data.accountLogin
       setUserData(account)
       setUserToken(token)
-      console.log('userdata: ', userData)
-      console.log('usertoken: ', userToken)
-
       await sweetAlert({
         title: `Bem vindo ${account.name}`,
         icon: 'success',
         text: 'Seja bem vindo!'
       })
-      console.table('returned data: ', data)
-      console.table('token: ', token)
     } catch (error) {
       await sweetAlert({
         title: 'Opa...',

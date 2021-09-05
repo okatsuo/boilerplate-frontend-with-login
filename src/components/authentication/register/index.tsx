@@ -78,7 +78,7 @@ const Register = () => {
                     <InputForm name='name' type='text' placeholder='name' />
                     {errors.name && touched.name && errors.name}
 
-                    <InputForm name='email' type='text' placeholder='email' />
+                    <InputForm name='email' type='email' placeholder='email' />
                     {errors.email && touched.email && errors.email}
 
                     <InputForm name='password' type='password' placeholder='password' />

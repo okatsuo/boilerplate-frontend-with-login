@@ -71,7 +71,7 @@ const Login = () => {
                   <Styles.Items>
                     <InputForm
                       name="email"
-                      type="text"
+                      type="email"
                       placeholder="email"
                       error={errors.email && touched.email && errors.email} />
 

@@ -1,6 +1,5 @@
 import { Formik, Form } from 'formik'
 import * as Yup from 'yup'
-import { UserContext } from '../../../context/user/userContext'
 import { Container } from '../../container'
 import InputForm from '../../forms/inputs'
 import Button from '../../forms/button'
@@ -9,7 +8,7 @@ import CheckboxForm from '../../forms/checkbox'
 import { USER_LOGIN } from '../../../graphql/queries/login'
 import { initializeApollo } from '../../../graphql/client'
 import sweetAlert from '../../../utils/window-alert'
-import { useContext } from 'react'
+import Router from 'next/router'
 interface ILogin {
   email: string
   password: string
@@ -22,8 +21,6 @@ const schema = Yup.object().shape({
 })
 
 const Login = () => {
-  const { setUserData, setUserToken } = useContext(UserContext) as any
-
   const handleSubmit = async (values: ILogin) => {
     const apolloClient = initializeApollo()
     const user = {
@@ -36,13 +33,8 @@ const Login = () => {
         variables: user
       })
       const { account, token } = data.accountLogin
-      setUserData(account)
-      setUserToken(token)
-      await sweetAlert({
-        title: `Bem vindo ${account.name}`,
-        icon: 'success',
-        text: 'Seja bem vindo!'
-      })
+      console.log(account, token)
+      await Router.push('/')
     } catch (error) {
       await sweetAlert({
         title: 'Opa...',

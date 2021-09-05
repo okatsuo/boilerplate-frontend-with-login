@@ -1,7 +1,7 @@
 
 const Header = () => {
   return (
-    <p>SALVE CONSAGRADO</p>
+    <p>saaalve</p>
   )
 }
 

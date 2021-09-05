@@ -1,5 +1,6 @@
 import { Formik, Form } from 'formik'
 import * as Yup from 'yup'
+import { UserContext } from '../../../context/user/userContext'
 import { Container } from '../../container'
 import InputForm from '../../forms/inputs'
 import Button from '../../forms/button'
@@ -8,6 +9,7 @@ import CheckboxForm from '../../forms/checkbox'
 import { USER_LOGIN } from '../../../graphql/queries/login'
 import { initializeApollo } from '../../../graphql/client'
 import sweetAlert from '../../../utils/window-alert'
+import { useContext } from 'react'
 interface ILogin {
   email: string
   password: string
@@ -20,6 +22,8 @@ const schema = Yup.object().shape({
 })
 
 const Login = () => {
+  const { userData, setUserData, userToken, setUserToken } = useContext(UserContext) as any
+
   const handleSubmit = async (values: ILogin) => {
     const apolloClient = initializeApollo()
     const user = {
@@ -32,6 +36,11 @@ const Login = () => {
         variables: user
       })
       const { account, token } = data.accountLogin
+      setUserData(account)
+      setUserToken(token)
+      console.log('userdata: ', userData)
+      console.log('usertoken: ', userToken)
+
       await sweetAlert({
         title: `Bem vindo ${account.name}`,
         icon: 'success',

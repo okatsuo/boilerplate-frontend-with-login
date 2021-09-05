@@ -88,6 +88,10 @@ const Login = () => {
                 </Form>
               )}
             </Formik>
+            <Styles.ToRegister>
+              Não tem uma conta ?
+              <Styles.Register onClick={async () => await Router.push('/register')}>registre-se</Styles.Register>
+            </Styles.ToRegister>
           </Styles.Square>
         </Styles.Content>
       </Container>

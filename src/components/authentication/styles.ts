@@ -17,6 +17,7 @@ export const Square = styled.div`
     height: 300px;
     border-radius: 20px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     box-shadow: 1px 1px 5px lightgrey;
@@ -27,4 +28,14 @@ export const Items = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+`
+export const ToRegister = styled.div`
+  position: relative;
+  bottom: -45px;
+`
+
+export const Register = styled.span`
+  padding-left: 5px;
+  color: lightblue;
+  cursor: pointer;
 `

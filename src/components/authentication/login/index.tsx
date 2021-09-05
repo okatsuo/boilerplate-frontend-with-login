@@ -1,5 +1,7 @@
 import { Formik, Form } from 'formik'
+import Router from 'next/router'
 import * as Yup from 'yup'
+import { setCookie } from 'nookies'
 import { Container } from '../../container'
 import InputForm from '../../forms/inputs'
 import Button from '../../forms/button'
@@ -8,7 +10,6 @@ import CheckboxForm from '../../forms/checkbox'
 import { USER_LOGIN } from '../../../graphql/queries/login'
 import { initializeApollo } from '../../../graphql/client'
 import sweetAlert from '../../../utils/window-alert'
-import Router from 'next/router'
 interface ILogin {
   email: string
   password: string
@@ -32,8 +33,11 @@ const Login = () => {
         query: USER_LOGIN,
         variables: user
       })
-      const { account, token } = data.accountLogin
-      console.log(account, token)
+      const { token } = data.accountLogin
+      setCookie(null, 't_user', token, {
+        maxAge: 60 * 1,
+        path: '/'
+      })
       await Router.push('/')
     } catch (error) {
       await sweetAlert({

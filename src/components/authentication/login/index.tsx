@@ -35,7 +35,7 @@ const Login = () => {
       })
       const { token } = data.accountLogin
       setCookie(null, 't_user', token, {
-        maxAge: 60 * 1,
+        maxAge: 8640,
         path: '/'
       })
       await Router.push('/')

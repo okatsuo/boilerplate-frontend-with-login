@@ -16,15 +16,17 @@ const CheckboxForm: React.FC<CheckboxProps> = ({
 }) => {
   return (
     <Styles.Wrapper>
-      <Field
-        name={name}
-        required={required}
-        type='checkbox'
-        style={{
-          ...styles
-        }}
-      />
-      {message}
+      <Styles.Container>
+        <Field
+          name={name}
+          required={required}
+          type='checkbox'
+          style={{
+            ...styles
+          }}
+        />
+        {message}
+      </Styles.Container>
     </Styles.Wrapper>
   )
 }

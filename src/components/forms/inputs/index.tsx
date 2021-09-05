@@ -1,8 +1,9 @@
 import { Field } from 'formik'
 import theme from '../../../../styles/theme'
+import * as Styles from './styles'
 
 interface FormProps {
-  name?: string
+  name: string
   required?: boolean
   inputProps?: any
   type?: string
@@ -10,6 +11,7 @@ interface FormProps {
   value?: string
   background?: string
   style?: React.CSSProperties
+  error?: any
 }
 
 const InputForm: React.FC<FormProps> = ({
@@ -18,28 +20,33 @@ const InputForm: React.FC<FormProps> = ({
   type = 'text',
   placeholder,
   value,
-  style = {}
+  style = {},
+  error
 }) => {
   return (
-    <>
-      <Field
-        name={name}
-        required={required}
-        type={type}
-        placeholder={placeholder}
-        value={value}
-        style={{
-          background: '#C4C4C4',
-          fontSize: 16,
-          color: theme.colors.primaryBackground,
-          textAlign: 'center',
-          borderRadius: '20px',
-          border: 'none',
-          height: '30px',
-          ...style
-        }}
-      />
-    </>
+    <Styles.Wrapper>
+      <Styles.Container>
+        <Field
+          name={name}
+          required={required}
+          type={type}
+          placeholder={placeholder}
+          value={value}
+          error={error}
+          style={{
+            background: theme.colors.lightGrey,
+            fontSize: theme.font.normal,
+            color: theme.colors.primaryBackground,
+            textAlign: 'center',
+            borderRadius: '20px',
+            border: 'none',
+            height: '30px',
+            ...style
+          }}
+        />
+        {error}
+      </Styles.Container>
+    </Styles.Wrapper>
   )
 }
 

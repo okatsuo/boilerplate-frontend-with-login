@@ -16,6 +16,12 @@ interface ILogin {
   rememberMe: boolean
 }
 
+const initialValues: ILogin = {
+  email: '',
+  password: '',
+  rememberMe: false
+}
+
 const schema = Yup.object().shape({
   email: Yup.string().required().email(),
   password: Yup.string().min(3).required()
@@ -54,11 +60,7 @@ const Login = () => {
         <Styles.Content>
           <Styles.Square>
             <Formik
-              initialValues={{
-                email: '',
-                password: '',
-                rememberMe: false
-              }}
+              initialValues={initialValues}
               onSubmit={async (values) => {
                 await handleSubmit(values)
               }}
@@ -67,11 +69,17 @@ const Login = () => {
               {({ errors, touched }) => (
                 <Form>
                   <Styles.Items>
-                    <InputForm name="email" type="text" placeholder="email" />
-                    {errors.email && touched.email && errors.email}
+                    <InputForm
+                      name="email"
+                      type="text"
+                      placeholder="email"
+                      error={errors.email && touched.email && errors.email} />
 
-                    <InputForm name="password" type="password" placeholder="senha" />
-                    {errors.password && touched.password && errors.password}
+                    <InputForm
+                      name="password"
+                      type="password"
+                      placeholder="senha"
+                      error={errors.password && touched.password && errors.password} />
 
                     <CheckboxForm name='rememberMe' message='lembrar-me' />
 

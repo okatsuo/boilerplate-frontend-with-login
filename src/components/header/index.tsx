@@ -18,9 +18,9 @@ const Header = () => {
       <Container>
         <Styles.Container>
           <Styles.UserInfo>
-            <div>
+            <Styles.Email>
               {user?.email}
-            </div>
+            </Styles.Email>
             <Styles.Logout onClick={async () => await logout()}>
               sair
             </Styles.Logout>

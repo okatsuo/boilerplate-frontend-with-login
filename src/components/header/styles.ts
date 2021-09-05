@@ -16,6 +16,10 @@ export const UserInfo = styled.div`
   flex-direction: column;
 `
 
-export const Logout = styled.div`
+export const Email = styled.text`
+  cursor: pointer;
+`
+
+export const Logout = styled.text`
  cursor: pointer;
 `

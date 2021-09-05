@@ -25,7 +25,8 @@ const Button: React.FC<ButtonProps> = ({
           borderRadius: '20px',
           border: 'none',
           width: 'auto',
-          height: '30px'
+          height: '30px',
+          cursor: 'pointer'
         }}
       />
     </>

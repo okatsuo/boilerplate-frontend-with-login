@@ -12,6 +12,7 @@
     "@apollo/client": "^3.4.10",
     "formik": "^2.2.9",
     "graphql": "^15.5.2",
+    "jsonwebtoken": "^8.5.1",
     "next": "11.1.0",
     "nookies": "^2.5.2",
     "react": "17.0.2",

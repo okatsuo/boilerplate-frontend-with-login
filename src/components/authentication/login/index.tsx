@@ -22,7 +22,11 @@ const schema = Yup.object().shape({
 })
 
 const Login = () => {
+<<<<<<< HEAD
   const { setUserData, setUserToken } = useContext(UserContext) as any
+=======
+  const { userData, setUserData, userToken, setUserToken } = useContext(UserContext) as any
+>>>>>>> 8d495276ac96160fb29d4834c616fd9223acf185
 
   const handleSubmit = async (values: ILogin) => {
     const apolloClient = initializeApollo()

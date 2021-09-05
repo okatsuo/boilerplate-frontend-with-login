@@ -1,9 +1,9 @@
 import type { NextPage } from 'next'
-import LoginTemplate from '../template/loginTemplate'
+import Header from '../components/header'
 
 const Home: NextPage = () => {
   return (
-    <LoginTemplate />
+    <Header />
   )
 }
 

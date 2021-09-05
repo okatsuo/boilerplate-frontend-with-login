@@ -1,5 +1,6 @@
 import { Form, Formik } from 'formik'
 import * as Yup from 'yup'
+import Router from 'next/router'
 import { useApollo } from '../../../graphql/client'
 import { USER_CREATE } from '../../../graphql/mutations/createUser'
 import Button from '../../forms/button'
@@ -39,16 +40,11 @@ const Register = () => {
         password: values.password
       }
       try {
-        const { data } = await apolloClient.mutate({
+        await apolloClient.mutate({
           mutation: USER_CREATE,
           variables: user
         })
-        const { userCreate } = data
-        await sweetAlert({
-          title: `Boa ${userCreate.name}`,
-          icon: 'success',
-          text: 'muito bem vindo(a)!'
-        })
+        await Router.push('/login')
       } catch (error) {
         await sweetAlert({
           title: 'Opa...',

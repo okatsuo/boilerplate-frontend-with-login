@@ -75,24 +75,39 @@ const Register = () => {
               {({ errors, touched }) => (
                 <Form>
                   <Styles.Items>
-                    <InputForm name='name' type='text' placeholder='name' />
-                    {errors.name && touched.name && errors.name}
+                    <InputForm
+                      name='name'
+                      type='text'
+                      placeholder='name'
+                      error={errors.name && touched.name && errors.name}
+                    />
 
-                    <InputForm name='email' type='email' placeholder='email' />
-                    {errors.email && touched.email && errors.email}
+                    <InputForm
+                      name='email'
+                      type='email'
+                      placeholder='email'
+                      error={errors.email && touched.email && errors.email}
+                    />
 
-                    <InputForm name='password' type='password' placeholder='password' />
-                    {errors.password && touched.password && errors.password}
+                    <InputForm
+                      name='password'
+                      type='password'
+                      placeholder='senha'
+                      error={errors.password && touched.password && errors.password} />
 
-                    <InputForm name='passwordConfirmation' type='password' placeholder='confirmação da senha' />
-                    {errors.passwordConfirmation && touched.passwordConfirmation && errors.passwordConfirmation}
+                    <InputForm
+                      name='passwordConfirmation'
+                      type='password'
+                      placeholder='confirmação da senha'
+                      error={errors.passwordConfirmation && touched.passwordConfirmation && errors.passwordConfirmation}
+                    />
 
                     <Button name='submit' type='submit' value='CADASTRAR' width='150px' />
                   </Styles.Items>
                 </Form>
               )}
             </Formik>
-            <Styles.ToRegister position={{ bottom: '-25px' }}>
+            <Styles.ToRegister >
               Já tem uma conta ?
               <Styles.Register onClick={async () => await Router.push('/login')}>entrar</Styles.Register>
             </Styles.ToRegister>

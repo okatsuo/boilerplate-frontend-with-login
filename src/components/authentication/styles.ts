@@ -13,18 +13,19 @@ export const Content = styled.div`
 export const Square = styled.div`
   ${({ theme }) => css`
     background: ${theme.colors.secondaryBackground};
-    width: 350px;
-    height: 300px;
+    width: auto;
+    height: auto;
     border-radius: 20px;
     display: flex;
-    flex-direction: column;
     align-items: center;
+    flex-direction: column;
     justify-content: center;
     box-shadow: 1px 1px 5px lightgrey;
   `}
 `
 
 export const Items = styled.div`
+  margin: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -38,7 +39,7 @@ interface ToRegisterProps {
 
 export const ToRegister = styled.div<ToRegisterProps>`
   position: relative;
-  bottom: ${props => props?.position?.bottom ?? '-45px'};
+  bottom: ${props => props?.position?.bottom ?? '3px'};
 `
 
 export const Register = styled.span`
